@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>메종 릴리앙 향료 중량 계산기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            width: 70%;
+        }
+
+        .input-group, .result-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+
+        .input-group label, .result-group label {
+            margin-right: 0.5em;
+        }
+
+        .input-group input, .result-group input {
+            width: 40%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .result-group input {
+            border: none;
+            background-color: #f9f9f9;
+        }
+
+        .arrow {
+            margin: 0 1em;
+        }
+
+        .btn-calculate {
+            margin-bottom: 1em;
+            padding: 0.75em 1.5em;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+
+        @media (min-width: 600px) {
+            .input-group input, .result-group input {
+                width: 15%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>메종 릴리앙<br>향료 중량 계산기</h1>
+
+        <div class="input-group">
+            <label for="a1">첫번째 향:</label>
+            <input type="number" id="a1">
+            <span class="arrow">➡</span>
+            <input type="number" id="c1" readonly>
+        </div>
+        <div class="input-group">
+            <label for="a2">두번째 향:</label>
+            <input type="number" id="a2">
+            <span class="arrow">➡</span>
+            <input type="number" id="c2" readonly>
+        </div>
+        <div class="input-group">
+            <label for="a3">세번째 향:</label>
+            <input type="number" id="a3">
+            <span class="arrow">➡</span>
+            <input type="number" id="c3" readonly>
+        </div>
+        <div class="input-group">
+            <label for="a4">네번째 향:</label>
+            <input type="number" id="a4">
+            <span class="arrow">➡</span>
+            <input type="number" id="c4" readonly>
+        </div>
+        <div class="input-group">
+            <label for="a5">다섯번째 향:</label>
+            <input type="number" id="a5">
+            <span class="arrow">➡</span>
+            <input type="number" id="c5" readonly>
+        </div>
+        <div class="input-group">
+            <label for="a6">여섯번째 향:</label>
+            <input type="number" id="a6">
+            <span class="arrow">➡</span>
+            <input type="number" id="c6" readonly>
+        </div>
+
+        <button class="btn-calculate" onclick="calculate()">계산하기</button>
+    </div>
+
+    <script>
+        function calculate() {
+            var a = [];
+            var b = [];
+            var c = [];
+
+            for (var i = 1; i <= 6; i++) {
+                var value = document.getElementById('a' + i).value;
+                a[i] = value ? parseFloat(value) : 0;
+            }
+
+            var sum = a.reduce((a, b) => a + b, 0);
+
+            for (var i = 1; i <= 6; i++) {
+                b[i] = a[i] / sum * 100;
+                c[i] = 6 * b[i] / 100;
+                document.getElementById('c' + i).value = c[i].toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
