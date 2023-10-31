@@ -9,6 +9,8 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            margin-top: 2em; /* Improvement: Add top margin to title */
+            overflow: hidden; /* Improvement: Prevent scrolling on touch devices */
         }
 
         .container {
@@ -16,7 +18,7 @@
             max-width: 100%;
             overflow: auto;
             overflow-x: hidden;
-            height: calc(100vh - 1em); /* 수정된 부분: 하단 여백 제거 */
+            height: calc(100vh - 1em); /* Modification: Removed bottom margin */
         }
 
         .calculator {
@@ -85,30 +87,35 @@
                 <span class="arrow">➡</span>
                 <input type="text" id="c1" readonly>
             </div>
+
             <div class="input-group">
                 <label for="a2">2nd :</label>
                 <input type="number" id="a2" oninput="checkInput(this)">
                 <span class="arrow">➡</span>
                 <input type="text" id="c2" readonly>
             </div>
+
             <div class="input-group">
                 <label for="a3">3rd :</label>
-                <input type="number" id="a3" oninput="checkInput(this)">
+                <input type="number" id "a3" oninput="checkInput(this)">
                 <span class="arrow">➡</span>
                 <input type="text" id="c3" readonly>
             </div>
+
             <div class="input-group">
                 <label for="a4">4th :</label>
                 <input type="number" id="a4" oninput="checkInput(this)">
                 <span class="arrow">➡</span>
                 <input type="text" id="c4" readonly>
             </div>
+
             <div class="input-group">
                 <label for="a5">5th :</label>
                 <input type="number" id="a5" oninput="checkInput(this)">
                 <span class="arrow">➡</span>
                 <input type="text" id="c5" readonly>
             </div>
+
             <div class="input-group">
                 <label for="a6">6th :</label>
                 <input type="number" id="a6" oninput="checkInput(this)">
