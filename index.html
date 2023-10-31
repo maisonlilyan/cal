@@ -8,20 +8,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             font-family: Arial, sans-serif;
         }
 
         .container {
             text-align: center;
-            width: 70%;
-            max-height: 100%;
+            max-width: 100%;
             overflow: auto;
+            overflow-x: hidden;
+            height: calc(100vh - 1em); /* 수정된 부분: 하단 여백 제거 */
         }
 
         .calculator {
             display: inline-block;
-            margin-right: 3cm; /* 수정된 부분: 계산기 부분을 왼쪽으로 이동 */
+            margin-right: 3cm;
         }
 
         .input-group, .result-group {
@@ -38,7 +38,7 @@
         }
 
         .input-group input, .result-group input {
-            width: 3em; /* 수정된 부분: 입력 상자와 결과 상자의 너비를 고정 크기로 지정 */
+            width: 3em;
             padding: 0.5em;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -55,8 +55,9 @@
         }
 
         .btn-calculate {
-            display: inline-block;
-            margin-top: 1em; /* 수정된 부분: 버튼 상단 여백 추가 */
+            display: block;
+            margin: 0 auto;
+            margin-top: 1em;
             padding: 0.6em 1.2em;
             font-size: 0.88em;
         }
@@ -68,7 +69,7 @@
 
         @media (min-width: 600px) {
             .input-group input, .result-group input {
-                width: 4.5em; /* 수정된 부분: 대형 화면에서 너비를 조정 */
+                width: 4.5em;
             }
         }
     </style>
