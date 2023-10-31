@@ -15,6 +15,13 @@
         .container {
             text-align: center;
             width: 70%;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        .calculator {
+            display: inline-block;
+            margin-right: 3cm; /* 수정된 부분: 계산기 부분을 왼쪽으로 이동 */
         }
 
         .input-group, .result-group {
@@ -31,7 +38,7 @@
         }
 
         .input-group input, .result-group input {
-            width: 40%;
+            width: 3em; /* 수정된 부분: 입력 상자와 결과 상자의 너비를 고정 크기로 지정 */
             padding: 0.5em;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -40,6 +47,7 @@
         .result-group input {
             border: none;
             background-color: transparent;
+            height: 1.3em;
         }
 
         .arrow {
@@ -47,7 +55,8 @@
         }
 
         .btn-calculate {
-            margin-bottom: 1em;
+            display: inline-block;
+            margin-top: 1em; /* 수정된 부분: 버튼 상단 여백 추가 */
             padding: 0.6em 1.2em;
             font-size: 0.88em;
         }
@@ -59,7 +68,7 @@
 
         @media (min-width: 600px) {
             .input-group input, .result-group input {
-                width: 15%;
+                width: 4.5em; /* 수정된 부분: 대형 화면에서 너비를 조정 */
             }
         }
     </style>
@@ -68,41 +77,43 @@
     <div class="container">
         <h1>메종 릴리앙<br>향료 중량 계산기</h1>
 
-        <div class="input-group">
-            <label for="a1">첫번째 향:</label>
-            <input type="number" id="a1" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c1" readonly>
-        </div>
-        <div class="input-group">
-            <label for="a2">두번째 향:</label>
-            <input type="number" id="a2" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c2" readonly>
-        </div>
-        <div class="input-group">
-            <label for="a3">세번째 향:</label>
-            <input type="number" id="a3" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c3" readonly>
-        </div>
-        <div class="input-group">
-            <label for="a4">네번째 향:</label>
-            <input type="number" id="a4" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c4" readonly>
-        </div>
-        <div class="input-group">
-            <label for="a5">다섯번째 향:</label>
-            <input type="number" id="a5" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c5" readonly>
-        </div>
-        <div class="input-group">
-            <label for="a6">여섯번째 향:</label>
-            <input type="number" id="a6" oninput="checkInput(this)">
-            <span class="arrow">➡</span>
-            <input type="text" id="c6" readonly>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="a1">1st :</label>
+                <input type="number" id="a1" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c1" readonly>
+            </div>
+            <div class="input-group">
+                <label for="a2">2nd :</label>
+                <input type="number" id="a2" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c2" readonly>
+            </div>
+            <div class="input-group">
+                <label for="a3">3rd :</label>
+                <input type="number" id="a3" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c3" readonly>
+            </div>
+            <div class="input-group">
+                <label for="a4">4th :</label>
+                <input type="number" id="a4" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c4" readonly>
+            </div>
+            <div class="input-group">
+                <label for="a5">5th :</label>
+                <input type="number" id="a5" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c5" readonly>
+            </div>
+            <div class="input-group">
+                <label for="a6">6th :</label>
+                <input type="number" id="a6" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c6" readonly>
+            </div>
         </div>
 
         <button class="btn-calculate" onclick="calculate()">계산하기</button>
@@ -129,7 +140,7 @@
 
             for (var i = 1; i <= 6; i++) {
                 b[i] = a[i] ? a[i] / sum * 100 : '';
-                c[i] = b[i] ? (6 * b[i] / 100).toFixed(2) : '';
+                c[i] = b[i] ? (28 * b[i] / 100).toFixed(2) : '';
                 document.getElementById('c' + i).value = c[i];
             }
         }
