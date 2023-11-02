@@ -9,8 +9,8 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            margin-top: 2em; /* Improvement: Add top margin to title */
-            overflow: hidden; /* Improvement: Prevent scrolling on touch devices */
+            margin-top: 2em;
+            overflow: hidden;
         }
 
         .container {
@@ -18,7 +18,7 @@
             max-width: 100%;
             overflow: auto;
             overflow-x: hidden;
-            height: calc(100vh - 1em); /* Modification: Removed bottom margin */
+            height: calc(100vh - 1em);
         }
 
         .calculator {
@@ -69,6 +69,17 @@
             margin-bottom: 1em;
         }
 
+        .volume-radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 0.8em;
+            margin-bottom: 2em;
+        }
+		
+		.volume-radio-group label {
+        margin-left: -0.8em;
+		}
+		
         @media (min-width: 600px) {
             .input-group input, .result-group input {
                 width: 4.5em;
@@ -79,6 +90,15 @@
 <body>
     <div class="container">
         <h1>메종 릴리앙<br>향료 중량 계산기</h1>
+
+        <div class="volume-radio-group">
+            <input type="radio" id="volume30" name="volume" value="3">
+            <label for="volume30">향수 30ml</label>
+            <input type="radio" id="volume50" name="volume" value="6" checked>
+            <label for="volume50">향수 50ml</label>
+            <input type="radio" id="volume100" name="volume" value="18">
+            <label for="volume100">디퓨저 100ml</label>
+        </div>
 
         <div class="calculator">
             <div class="input-group">
@@ -128,6 +148,15 @@
     </div>
 
     <script>
+        var N = 5; // 기본값 설정
+
+        var volumeRadios = document.getElementsByName('volume');
+        volumeRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                N = parseInt(this.value);
+            });
+        });
+
         function checkInput(input) {
             if (input.value === '') {
                 input.value = '';
@@ -148,7 +177,7 @@
 
             for (var i = 1; i <= 6; i++) {
                 b[i] = a[i] ? a[i] / sum * 100 : '';
-                c[i] = b[i] ? (28 * b[i] / 100).toFixed(2) : '';
+                c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
                 document.getElementById('c' + i).value = c[i];
             }
         }
