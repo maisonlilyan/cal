@@ -4,13 +4,31 @@
     <title>메종 릴리앙 향료 중량 계산기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        @font-face {
+            font-family: 'Cafe24ClassicType-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '국립박물관문화재단클래식M';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식M.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: '국립박물관문화재단클래식M', Arial, sans-serif;
             margin-top: 2em;
             overflow: hidden;
+            background-image: url('https://github.com/maisonlilyan/cal/blob/main/BG1.jpg?raw=true');
+            background-size: auto;
+            background-repeat: repeat;
+            background-position: center;
         }
 
         .container {
@@ -65,6 +83,7 @@
         }
 
         h1 {
+            font-family: 'Cafe24ClassicType-Regular', '국립박물관문화재단클래식M', Arial, sans-serif;
             font-size: 1.7em;
             margin-bottom: 1em;
         }
@@ -76,9 +95,9 @@
             margin-bottom: 2em;
         }
 		
-		.volume-radio-group label {
-        margin-left: -0.5em;
-		}
+        .volume-radio-group label {
+            margin-left: -0.5em;
+        }
 		
         @media (min-width: 600px) {
             .input-group input, .result-group input {
