@@ -134,14 +134,7 @@
                 <input type="number" id="a5" oninput="checkInput(this)">
                 <span class="arrow">➡</span>
                 <input type="text" id="c5" readonly>
-            </div>
-
-            <div class="input-group">
-                <label for="a6">여섯번째 향 :</label>
-                <input type="number" id="a6" oninput="checkInput(this)">
-                <span class="arrow">➡</span>
-                <input type="text" id="c6" readonly>
-            </div>
+	    </div>
         </div>
 
         <button class="btn-calculate" onclick="calculate()">계산하기</button>
@@ -168,14 +161,14 @@
             var b = [];
             var c = [];
 
-            for (var i = 1; i <= 6; i++) {
+            for (var i = 1; i <= 5; i++) {
                 var value = document.getElementById('a' + i).value;
                 a[i] = value ? parseFloat(value) : '';
             }
 
             var sum = a.reduce((a, b) => a + b, 0);
 
-            for (var i = 1; i <= 6; i++) {
+            for (var i = 1; i <= 5; i++) {
                 b[i] = a[i] ? a[i] / sum * 100 : '';
                 c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
                 document.getElementById('c' + i).value = c[i];
