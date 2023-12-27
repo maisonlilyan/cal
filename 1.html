@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>메종 릴리앙 향료 중량 계산기(공방용)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @font-face {
+            font-family: 'Cafe24ClassicType-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '국립박물관문화재단클래식M';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식M.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: '국립박물관문화재단클래식M', Arial, sans-serif;
+            margin-top: 2em;
+            overflow: hidden;
+            background-image: url('https://github.com/maisonlilyan/cal/blob/main/BG1.jpg?raw=true');
+            background-size: auto;
+            background-repeat: repeat;
+            background-position: center;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 100%;
+            overflow: auto;
+            overflow-x: hidden;
+            height: calc(100vh - 1em);
+        }
+
+        .calculator {
+            display: inline-block;
+            margin-right: 3cm;
+        }
+
+        .input-group, .result-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+
+        .input-group label, .result-group label {
+            margin-right: 0.5em;
+            text-align: right;
+            flex: 1 0 45%;
+        }
+
+        .input-group input, .result-group input {
+            width: 3em;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .result-group input {
+            border: none;
+            background-color: transparent;
+            height: 1.3em;
+        }
+
+        .arrow {
+            margin: 0 1em;
+        }
+
+        .btn-calculate {
+            display: block;
+            margin: 0 auto;
+            margin-top: 1em;
+            padding: 0.6em 1.2em;
+            font-size: 0.88em;
+        }
+
+        h1 {
+            font-family: 'Cafe24ClassicType-Regular', '국립박물관문화재단클래식M', Arial, sans-serif;
+            font-size: 1.7em;
+            margin-bottom: 1em;
+        }
+
+        .volume-radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            margin-bottom: 2em;
+        }
+		
+        .volume-radio-group label {
+            margin-left: -0.5em;
+        }
+		
+        @media (min-width: 600px) {
+            .input-group input, .result-group input {
+                width: 4.5em;
+            }
+ 	#weights {
+            margin-left: 40px;
+	#totalDrops  {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>메종 릴리앙<br>향료 중량 계산기</h1>
+
+        <div class="volume-radio-group">
+            <input type="radio" id="volume30" name="volume" value="12">
+            <label for="volume30">엑스뜨레드 50ml</label>
+            <input type="radio" id="volume50" name="volume" value="8" checked>
+            <label for="volume50">오드퍼퓸,워터 50ml</label>
+            <input type="radio" id="volume100" name="volume" value="20">
+            <label for="volume100">디퓨저 150ml</label>
+			<input type="radio" id="volumeRoomSpray" name="volume" value="3">
+            <label for="volumeRoomSpray">룸스프레이</label>
+        </div>
+        <div>
+            <p><span id="totalDrops">Total Drops</span><span id="weights">/               Weights</span></p>
+        </div>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="a1">첫번째 향 :</label>
+                <input type="number" id="a1" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c1" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a2">두번째 향 :</label>
+                <input type="number" id="a2" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c2" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a3">세번째 향 :</label>
+                <input type="number" id="a3" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c3" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a4">네번째 향 :</label>
+                <input type="number" id="a4" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c4" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a5">다섯번째 향 :</label>
+                <input type="number" id="a5" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c5" readonly>
+	    </div>
+        </div>
+
+        <button class="btn-calculate" onclick="calculate()">계산하기</button>
+    </div>
+
+    <script>
+        var N = 8; // 기본값 설정
+
+        var volumeRadios = document.getElementsByName('volume');
+        volumeRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                N = parseInt(this.value);
+            });
+        });
+
+        function checkInput(input) {
+            if (input.value === '') {
+                input.value = '';
+            }
+        }
+
+        function calculate() {
+            var a = [];
+            var b = [];
+            var c = [];
+
+            for (var i = 1; i <= 5; i++) {
+                var value = document.getElementById('a' + i).value;
+                a[i] = value ? parseFloat(value) : '';
+            }
+
+            var sum = a.reduce((a, b) => a + b, 0);
+
+            for (var i = 1; i <= 5; i++) {
+                b[i] = a[i] ? a[i] / sum * 100 : '';
+                c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
+                document.getElementById('c' + i).value = c[i];
+            }
+        }
+    </script>
+</body>
+</html>
