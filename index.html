@@ -112,17 +112,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>메종 릴리앙<br>향료 중량 계산기</h1>
+        <h1>메종 릴리앙<br>향료 중량 계산기(공방용)</h1>
 
         <div class="volume-radio-group">
-            <input type="radio" id="volume30" name="volume" value="28">
-            <label for="volume30">향수 30ml</label>
-            <input type="radio" id="volume50" name="volume" value="48" checked>
-            <label for="volume50">향수 50ml</label>
+            <input type="radio" id="volume30" name="volume" value="12">
+            <label for="volume30">엑스뜨레드 50ml</label>
+            <input type="radio" id="volume50" name="volume" value="8" checked>
+            <label for="volume50">오드퍼퓸,워터 50ml</label>
             <input type="radio" id="volume100" name="volume" value="18">
             <label for="volume100">디퓨저 100ml</label>
-			<input type="radio" id="volumeRoomSpray" name="volume" value="3">
-            <label for="volumeRoomSpray">룸스프레이</label>
+			<input type="radio" id="volumeRoomSpray" name="volume" value="2">
+            <label for="volumeRoomSpray">핸드크림</label>
         </div>
         <div>
             <p><span id="totalDrops">Total Drops</span><span id="weights">/               Weights</span></p>
@@ -162,13 +162,27 @@
                 <span class="arrow">➡</span>
                 <input type="text" id="c5" readonly>
 	    </div>
+		
+		<div class="input-group">
+                <label for="a6">여섯번째 향 :</label>
+                <input type="number" id="a6" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c6" readonly>
+	    </div>
+		
+		<div class="input-group">
+                <label for="a7">일곱번째 향 :</label>
+                <input type="number" id="a7" oninput="checkInput(this)">
+                <span class="arrow">➡</span>
+                <input type="text" id="c7" readonly>
+	    </div>
         </div>
 
         <button class="btn-calculate" onclick="calculate()">계산하기</button>
     </div>
 
     <script>
-        var N = 48; // 기본값 설정
+        var N = 8; // 기본값 설정
 
         var volumeRadios = document.getElementsByName('volume');
         volumeRadios.forEach(function(radio) {
@@ -188,14 +202,14 @@
             var b = [];
             var c = [];
 
-            for (var i = 1; i <= 5; i++) {
+            for (var i = 1; i <= 7; i++) {
                 var value = document.getElementById('a' + i).value;
                 a[i] = value ? parseFloat(value) : '';
             }
 
             var sum = a.reduce((a, b) => a + b, 0);
 
-            for (var i = 1; i <= 5; i++) {
+            for (var i = 1; i <= 7; i++) {
                 b[i] = a[i] ? a[i] / sum * 100 : '';
                 c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
                 document.getElementById('c' + i).value = c[i];
