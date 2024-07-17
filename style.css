@@ -230,3 +230,13 @@ a {
 .bpw-send-buttons {
   display: none;
 }
+
+html {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+body {
+  height: 100%;
+  overflow: auto;
+}
