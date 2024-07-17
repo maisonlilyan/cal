@@ -12,6 +12,7 @@ p,
 
 /* This rule changes the color of the text in the input message */
 #input-message {
+	  display: none;
   color: #fff2dc;
 }
 
