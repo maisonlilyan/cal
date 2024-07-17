@@ -125,14 +125,14 @@ a {
 .bpw-chat-container::-webkit-scrollbar,
 .bpw-chat-container::-moz-scrollbar {
   width: 10px;
-  background-color: #000000;
+  background-color: #a4c6de;
   border: none;
 }
 
 /* Styling for the avatar of the bot */
 .bpw-bot-avatar img,
 .bpw-bot-avatar svg {
-  background: #000000;
+  background: #a4c6de;
   border: 3px solid #ffffff;
 }
 
@@ -152,7 +152,7 @@ a {
 ::-webkit-scrollbar-thumb,
 .bpw-chat-container::-webkit-scrollbar-thumb,
 .bpw-chat-container::-moz-scrollbar-thumb {
-  background-color: #000000;
+  background-color: #a4c6de;
   border-radius: 2rem;
   border: 0.5rem solid transparent;
 }
