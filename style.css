@@ -41,7 +41,7 @@ p,
 /* Styling for the chat bubble content */
 .bpw-chat-bubble-content {
   background-color: #4b4b4b;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px transparent;
 }
 
