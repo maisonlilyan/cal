@@ -67,14 +67,14 @@ p,
 
 /* Styling for the keyboard single choice option */
 .bpw-keyboard-single-choice {
-  background-color: #000000;
+  background-color: #a4c6de;
   border: none;
 }
 
 /* Styling for the buttons in the chat interface */
 .bpw-button,
 .bpw-button-alt {
-  background-color: #323232;
+  background-color: #5f80c9;
   color: #ffffff;
   border-radius: 30px;
   border: none;
@@ -84,7 +84,7 @@ p,
 /* Styling for hover effect on the buttons in the chat interface */
 .bpw-button:hover,
 .bpw-button-alt:hover {
-  background-color: #4b4b4b;
+  background-color: #cae0e5;
 }
 
 
