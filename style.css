@@ -105,14 +105,14 @@ a {
 
 /* Styling for the chat bubble content when it's from the bot */
 .bpw-from-bot .bpw-chat-bubble .bpw-chat-bubble-content {
-  background-color: #f4829d;
-  color: #fff2dc;
+  background-color: #ffcfcf;
+  color: #f4829d;
 }
 
 /* Styling for the chat bubble content when it's from the user */
 .bpw-from-user .bpw-chat-bubble .bpw-chat-bubble-content {
-  background-color: #f4829d;
-  color: #fff2dc;
+  background-color: #cae0e5;
+  color: #5f80c9;
 }
 
 
