@@ -19,7 +19,7 @@ p,
 /* Changes the color of the new message indicator */
 .bpw-new-messages-indicator {
   background-color: #4b4b4b;
-  color: #ffffff;
+  color: #fff2dc;
 }
 
 /* Styling for the chat header container */
@@ -36,7 +36,7 @@ p,
 
 /* Styling for the typing bubble */
 .bpw-typing-bubble {
-  background: #ffffff;
+  background: #fff2dc;
 }
 
 /* Styling for the chat bubble content */
@@ -57,7 +57,7 @@ p,
 .bpw-header-icon,
 .bpw-header-icon svg,
 .bpw-header-icon svg path {
-  fill: #ffffff !important;
+  fill: #fff2dc !important;
 }
 
 /* Changes the color of the placeholder text in the input message */
@@ -76,7 +76,7 @@ p,
 .bpw-button,
 .bpw-button-alt {
   background-color: #5f80c9;
-  color: #ffffff;
+  color: #fff2dc;
   border-radius: 30px;
   border: none;
 }
@@ -106,13 +106,13 @@ a {
 /* Styling for the chat bubble content when it's from the bot */
 .bpw-from-bot .bpw-chat-bubble .bpw-chat-bubble-content {
   background-color: #f4829d;
-  color: #ffffff;
+  color: #fff2dc;
 }
 
 /* Styling for the chat bubble content when it's from the user */
 .bpw-from-user .bpw-chat-bubble .bpw-chat-bubble-content {
   background-color: #f4829d;
-  color: #ffffff;
+  color: #fff2dc;
 }
 
 
@@ -128,7 +128,7 @@ a {
 .bpw-bot-avatar img,
 .bpw-bot-avatar svg {
   background: #a4c6de;
-  border: 3px solid #ffffff;
+  border: 3px solid #fff2dc;
 }
 
 /* Styling for the general scrollbar in the web page */
@@ -154,7 +154,7 @@ a {
 
 /* Styling for the floating button icon in the chat interface */
 .bpw-floating-button i svg path {
-  fill: #ffffff;
+  fill: #fff2dc;
 }
 
 /* Styling for the floating button in the chat interface */
@@ -167,7 +167,7 @@ a {
 .bpw-powered {
   text-align: center;
   padding: 10px;
-  color: #ffffff;
+  color: #fff2dc;
   background: #000000;
   font-size: 16px;
   border-bottom-right-radius: 10px;
@@ -176,7 +176,7 @@ a {
 
 /* Styling for the hyperlinks in the 'powered by' section of the chat interface */
 .bpw-powered a {
-  color: #ffffff;
+  color: #fff2dc;
   text-decoration: none;
 }
 
