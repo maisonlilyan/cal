@@ -41,7 +41,7 @@ p,
 /* Styling for the chat bubble content */
 .bpw-chat-bubble-content {
   background-color: #4b4b4b;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 1px transparent;
 }
 
@@ -76,7 +76,7 @@ p,
 .bpw-button-alt {
   background-color: #323232;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
 }
 
@@ -153,7 +153,7 @@ a {
 .bpw-chat-container::-webkit-scrollbar-thumb,
 .bpw-chat-container::-moz-scrollbar-thumb {
   background-color: #000000;
-  border-radius: 1rem;
+  border-radius: 2rem;
   border: 0.5rem solid transparent;
 }
 
@@ -164,7 +164,7 @@ a {
 
 /* Styling for the floating button in the chat interface */
 .bpw-floating-button {
-  background: black;
+  background: a4c6de;
   border-radius: 52px;
 }
 
