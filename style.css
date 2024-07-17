@@ -114,12 +114,6 @@ a {
   color: #ffffff;
 }
 
-/* Styling for the composer section of the chat interface */
-.bpw-composer {
-  background-color: #a4c6de;
-  border-top: 1px solid #f4829d;
-}
-
 
 /* Styling for the scrollbar in the chat container */
 .bpw-chat-container::-webkit-scrollbar,
@@ -201,14 +195,14 @@ a {
 
 /* Styling for the send buttons */
 .bpw-send-buttons {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
 }
 
 /* Styling for the individual send button */
 .bpw-send-button {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   border-radius: var(--spacing-medium);
