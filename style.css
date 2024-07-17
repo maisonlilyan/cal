@@ -227,3 +227,11 @@ a {
 .bpw-send-button:not(:disabled):hover {
   background-color: var(--theme-primary-hover);
 }
+
+.bpw-composer {
+  display: none;
+}
+
+.bpw-send-buttons {
+  display: none;
+}
