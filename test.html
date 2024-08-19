@@ -1,261 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>메종 릴리앙 향료 중량 계산기</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-#c6, #c5, #c4, #c3, #c2, #c1 {
-    background-color: #A4C6DE;
-    text-align: right; /* 텍스트를 왼쪽으로 정렬합니다. */
-    border: none; /* 테두리를 제거합니다. */
-    border-radius: 6px; /* 경계선의 모서리를 둥글게 처리합니다. */
-    padding-right: 0.5em; /* 내부 왼쪽에 공백을 추가하여 텍스트가 스페이스바 한 칸 띄고 나오게 합니다. */
-    display: block; /* 블록 레벨 요소로 변경 */
-  width: 4em; /* 좌우 패딩을 고려하여 계산 */
-    font-weight: 600;
-}
-	  
-        .container {
-            text-align: center;
-            max-width: 100%;
-            overflow: auto;
-            overflow-x: hidden;
-		  margin-bottom: 0;
-        }
+<meta charset="UTF-8">
+<title>Perfume Boutique Animation & Calculator</title>
+<style>
+    /* 1번 코드의 스타일 */
+    .text-wrapper1 {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      margin-top: 50px; /* 상단 여백 추가 */
+    }
 
-        .calculator {
-            display: inline-block;
-            margin-right: 3cm;
-        }
+    .text-wrapper1 span {
+      display: inline-block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: jumpIn 1.5s infinite;
+      color: #F4829D;
+      font-size: 20px;
+      font-family: 'BaskinRobbins';
+      font-weight: 700;
+    }
 
-        .input-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1em;
-        }
+    @keyframes jumpIn {
+      0%, 20%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+    }
 
-        .input-group label {
-            margin-right: 0.5em;
-            text-align: right;
-            flex: 1 0 45%;
-        }
-	  
-        .input-group select {
-            width: 3em;
-            padding: 0.5em;
-            border: 0px
-            border-radius: 4px;
-        }
+    /* 2번 코드의 스타일 */
+    #c6, #c5, #c4, #c3, #c2, #c1 {
+      background-color: #A4C6DE;
+      text-align: right;
+      border: none;
+      border-radius: 6px;
+      padding-right: 0.5em;
+      display: block;
+      width: 4em;
+      font-weight: 600;
+    }
 
-        .arrow {
-            margin: 0 1em;
-        }
+    .container {
+      text-align: center;
+      max-width: 100%;
+      overflow: auto;
+      overflow-x: hidden;
+      margin-bottom: 50px; /* 하단 여백 추가 */
+    }
 
-        .btn-calculate {
-            display: block;
-            margin: 0 auto;
-            margin-top: 1em;
-            padding: 0.6em 1.2em;
-            font-size: 0.88em;
-        }
+    .calculator {
+      display: inline-block;
+      margin-right: 3cm;
+    }
 
-        h1 {
-            font-size: 1.7em;
-            margin-bottom: 1em;
-        }
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1em;
+    }
 
-        .volume-radio-group select {
-            width: 100%; /* 수정됨: 너비 확장 */
-            padding: 0.5em;
-            border-radius: 4px; /* 수정됨: 모서리 라운드 */
-        }
-		
-        .volume-radio-group label {
-            margin-left: -0.5em;
-        }
-		
-        @media (min-width: 600px) {
-            .input-group select {
-                width: 4.5em;
-            }
-        }
-        
-	  .space-between {
-    margin-bottom: 1em;
-}
+    .input-group label {
+      margin-right: 0.5em;
+      text-align: right;
+      flex: 1 0 45%;
+    }
 
-	  
-    </style>
+    .input-group select {
+      width: 3em;
+      padding: 0.5em;
+      border-radius: 4px;
+    }
+
+    .arrow {
+      margin: 0 1em;
+    }
+
+    .btn-calculate {
+      display: block;
+      margin: 0 auto;
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      font-size: 0.88em;
+    }
+
+    h1 {
+      font-size: 1.7em;
+      margin-bottom: 1em;
+    }
+
+    .volume-radio-group select {
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 4px;
+    }
+
+    .volume-radio-group label {
+      margin-left: -0.5em;
+    }
+
+    @media (min-width: 600px) {
+      .input-group select {
+        width: 4.5em;
+      }
+    }
+
+    .space-between {
+      margin-bottom: 1em;
+    }
+
+    /* 추가 스타일 */
+    .text-wrapper1 + .container {
+      margin-top: 30px; /* 1번 코드와 2번 코드 사이의 여백 */
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="volume-radio-group">
-            <select id="volumeSelect">
-			  <option value="0">향수를 선택해주세요.</option>
-			  <option value="5">룸스프레이 50ml</option>
-			  <option value="1" selected>오드콜로뉴 30ml</option> 
-                <option value="6.4">오드뚜왈렛 30ml</option> 
-                <option value="9.6">오드뚜왈렛 50ml</option> 
-                <option value="19.3">오드퍼퓸 50ml</option>
-                <option value="32">엑스뜨레드 50ml</option> 시향병 부향률 30%
+
+<!-- 1번 코드 내용 -->
+<div class="text-wrapper1">
+    <span>메</span><span>종</span><span>릴</span><span>리</span><span>앙</span> 
+    <span>향</span><span>료</span><span>중</span><span>량</span><span>계</span><span>산</span><span>기</span>
+</div>
+
+<!-- 2번 코드 내용 -->
+<div class="container">
+    <div class="volume-radio-group">
+        <select id="volumeSelect">
+            <option value="0">향수를 선택해주세요.</option>
+            <option value="5">룸스프레이 50ml</option>
+            <option value="1" selected>오드콜로뉴 30ml</option> 
+            <option value="6.4">오드뚜왈렛 30ml</option> 
+            <option value="9.6">오드뚜왈렛 50ml</option> 
+            <option value="19.3">오드퍼퓸 50ml</option>
+            <option value="32">엑스뜨레드 50ml</option> 시향병 부향률 30%
+        </select>
+    </div>
+    <div class="space-between"></div>
+    <div>
+        <p><span id="totalDrops">최종 방울 수  </span><span id="weights">/               향료 무게(g)</span></p>
+    </div>
+    <div class="calculator">
+        <div class="input-group">
+            <label for="a1">첫번째 향료 :</label>
+            <select id="a1" oninput="checkInput(this)">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c1" readonly>
         </div>
-        <div class="space-between"></div> <!-- 수정됨: 공간 추가 -->
-        <div>
-            <p><span id="totalDrops">최종 방울 수  </span><span id="weights">/               향료 무게(g)</span></p>
+
+        <div class="input-group">
+            <label for="a2">두번째 향료 :</label>
+            <select id="a2" oninput="checkInput(this)">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c2" readonly>
         </div>
-        <div class="calculator">
-            <!-- 수정됨: input 대신 select 사용 -->
-            <div class="input-group">
-                <label for="a1">첫번째 향료 :</label>
-                <select id="a1" oninput="checkInput(this)">
-				    <option value="0">0</option>
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c1" readonly>
-            </div>
 
-            <div class="input-group">
-                <label for="a2">두번째 향료 :</label>
-                <select id="a2" oninput="checkInput(this)">
-				  	<option value="0">0</option>
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c2" readonly>
-            </div>
+        <div class="input-group">
+            <label for="a3">세번째 향료 :</label>
+            <select id="a3" oninput="checkInput(this)">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c3" readonly>
+        </div>
 
-            <div class="input-group">
-                <label for="a3">세번째 향료 :</label>
-                <select id="a3" oninput="checkInput(this)">
-				  	<option value="0">0</option>
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c3" readonly>
-            </div>
+        <div class="input-group">
+            <label for="a4">네번째 향료 :</label>
+            <select id="a4" oninput="checkInput(this)">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c4" readonly>
+        </div>
 
-            <div class="input-group">
-                <label for="a4">네번째 향료 :</label>
-                <select id="a4" oninput="checkInput(this)">
-				  	<option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c4" readonly>
-            </div>
+        <div class="input-group">
+            <label for="a5">다섯번째 향료 :</label>
+            <select id="a5" oninput="checkInput(this)">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c5" readonly>
+        </div>
 
-            <div class="input-group">
-                <label for="a5">다섯번째 향료 :</label>
-                <select id="a5" oninput="checkInput(this)">
-				  	<option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c5" readonly>
-            </div>
-		   <div class="input-group">
-                <label for="a6">여섯번째 향료 :</label>
-                <select id="a6" oninput="checkInput(this)">
-				  	<option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
-				    <option value="10">10</option>
-                </select>
-                <span class="arrow">➡</span>
-                <input type="text" id="c6" readonly>
-            </div>
+        <div class="input-group">
+            <label for="a6">여섯번째 향료 :</label>
+            <select id="a6" oninput="checkInput(this)">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="arrow">➡</span>
+            <input type="text" id="c6" readonly>
         </div>
 
         <button class="btn-calculate" onclick="calculate()">계산하기</button>
     </div>
+</div>
 
-    <script>
-        var N = 1; // 기본값 설정
+<!-- 2번 코드의 스크립트 -->
+<script>
+    function checkInput(selectElement) {
+        const id = selectElement.id;
+        const inputId = 'c' + id.slice(-1);
+        const inputElement = document.getElementById(inputId);
+        inputElement.value = selectElement.value;
+    }
 
-        var volumeSelect = document.getElementById('volumeSelect');
-        volumeSelect.addEventListener('change', function() {
-            N = parseInt(this.value);
-        });
+    function calculate() {
+        const a1 = parseInt(document.getElementById("a1").value);
+        const a2 = parseInt(document.getElementById("a2").value);
+        const a3 = parseInt(document.getElementById("a3").value);
+        const a4 = parseInt(document.getElementById("a4").value);
+        const a5 = parseInt(document.getElementById("a5").value);
+        const a6 = parseInt(document.getElementById("a6").value);
 
-        function checkInput(input) {
-            if (input.value === '') {
-                input.value = '';
-            }
+        const totalDrops = a1 + a2 + a3 + a4 + a5 + a6;
+        const selectedValue = parseFloat(document.getElementById("volumeSelect").value);
+
+        let totalWeight;
+        if (selectedValue) {
+            totalWeight = ((selectedValue * totalDrops) / 100).toFixed(2);
+        } else {
+            totalWeight = "0.00";
         }
 
-        function calculate() {
-            var a = [];
-            var b = [];
-            var c = [];
+        document.getElementById("totalDrops").textContent = `최종 방울 수: ${totalDrops}`;
+        document.getElementById("weights").textContent = `향료 무게(g): ${totalWeight}`;
+    }
+</script>
 
-            for (var i = 1; i <= 6; i++) {
-                var value = document.getElementById('a' + i).value;
-                a[i] = value ? parseFloat(value) : '';
-            }
-
-            var sum = a.reduce((a, b) => a + b, 0);
-
-            for (var i = 1; i <= 6; i++) {
-                b[i] = a[i] ? a[i] / sum * 100 : '';
-                c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
-                document.getElementById('c' + i).value = c[i];
-            }
-        }
-    </script>
 </body>
 </html>
