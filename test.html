@@ -1,13 +1,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>엘르샤토 향료중량 계산기(출강용)</title>
+<title>Perfume Boutique Animation</title>
 
 </head>
 <body>
 
 <div class="text-wrapper1">
-    <span>엘</span><span>르</span><span>샤</span><span>토</span> 
+    <span>메</span><span>종</span><span>릴</span><span>리</span><span>앙</span> 
     <span>향</span><span>료</span><span>중</span><span>량</span><span>계</span><span>산</span><span>기</span>
 </div>
 
@@ -220,7 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
       display: inline-block;
       text-align: center;
       width: 100%;
-            margin-top: 30px;
     }
 
     .text-wrapper1 span {
@@ -257,17 +256,15 @@ font-family: 'BaskinRobbins';
 
 #c6, #c5, #c4, #c3, #c2, #c1 {
     background-color: #A4C6DE;
-    text-align: right;
-    border: none;
-    border-radius: 6px;
-    padding-right: 0.5em;
-    display: block;
-    width: 5em; /* 너비를 좀 더 늘립니다 */
-    font-size: 1em; /* 글자 크기를 조정합니다 */
-    height: 2em; /* 높이를 조정합니다 */
-    line-height: 2em; /* 세로 중앙 정렬을 위해 line-height를 설정합니다 */
+    text-align: right; /* 텍스트를 왼쪽으로 정렬합니다. */
+    border: none; /* 테두리를 제거합니다. */
+    border-radius: 6px; /* 경계선의 모서리를 둥글게 처리합니다. */
+    padding-right: 0.5em; /* 내부 왼쪽에 공백을 추가하여 텍스트가 스페이스바 한 칸 띄고 나오게 합니다. */
+    display: block; /* 블록 레벨 요소로 변경 */
+  width: 4em; /* 좌우 패딩을 고려하여 계산 */
     font-weight: 600;
-}  
+}
+	  
         .container {
             text-align: center;
             max-width: 100%;
@@ -294,17 +291,12 @@ font-family: 'BaskinRobbins';
             flex: 1 0 45%;
         }
 	  
-.input-group select {
-    width: 4em; /* 너비를 늘림 */
-    padding: 0.5em 0.3em; /* 좌우 패딩을 줄임 */
-    border: 1px solid #ccc; /* 테두리 추가 (선택사항) */
-    border-radius: 4px;
-    appearance: none; /* 기본 화살표 제거 */
-    -webkit-appearance: none; /* Safari를 위한 설정 */
-    -moz-appearance: none; /* Firefox를 위한 설정 */
-    background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 0.3em center; /* 사용자 정의 화살표 추가 */
-    background-size: 1em;
-}
+        .input-group select {
+            width: 3em;
+            padding: 0.5em;
+            border: 0px
+            border-radius: 4px;
+        }
 
         .arrow {
             margin: 0 1em;
@@ -323,17 +315,15 @@ font-family: 'BaskinRobbins';
             margin-bottom: 1em;
         }
 
-.volume-radio-group {
-    max-width: 300px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 좌우 중앙 정렬 */
-    padding: 0 20px; /* 좌우 패딩 추가 */
-}
-
-.volume-radio-group select {
-    width: 100%; /* 부모 요소의 너비에 맞춤 */
-    padding: 0.5em;
-    border-radius: 4px;
-}
+        .volume-radio-group select {
+            width: 100%; /* 수정됨: 너비 확장 */
+            padding: 0.5em;
+            border-radius: 4px; /* 수정됨: 모서리 라운드 */
+        }
+		
+        .volume-radio-group label {
+            margin-left: -0.5em;
+        }
 		
         @media (min-width: 600px) {
             .input-group select {
