@@ -164,3 +164,54 @@
     
 </body>
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const spans = document.querySelectorAll('.text-wrapper1 span');
+  const animationDuration = 2; // 애니메이션 지속 시간 (초)
+  const delayBetweenAnimations = 0.5; // 애니메이션 사이의 딜레이 (초)
+  const delayIncrement = 0.2; // 각 글자 사이의 딜레이 증가량
+  const totalAnimationTime = animationDuration + delayBetweenAnimations;
+  const totalDuration = (spans.length - 1) * delayIncrement + totalAnimationTime;
+  
+  spans.forEach((span, index) => {
+    // 각 글자의 애니메이션 딜레이를 설정
+    span.style.animationDelay = `${index * delayIncrement}s`;
+    // 각 애니메이션이 끝난 후 1초 동안 기다리는 시간을 포함하여 애니메이션 지속 시간 설정
+    span.style.animationDuration = `${totalDuration}s`;
+  });
+});
+
+
+        var N = 1; // 기본값 설정
+
+        var volumeSelect = document.getElementById('volumeSelect');
+        volumeSelect.addEventListener('change', function() {
+            N = parseInt(this.value);
+        });
+
+        function checkInput(input) {
+            if (input.value === '') {
+                input.value = '';
+            }
+        }
+
+        function calculate() {
+            var a = [];
+            var b = [];
+            var c = [];
+
+            for (var i = 1; i <= 6; i++) {
+                var value = document.getElementById('a' + i).value;
+                a[i] = value ? parseFloat(value) : '';
+            }
+
+            var sum = a.reduce((a, b) => a + b, 0);
+
+            for (var i = 1; i <= 6; i++) {
+                b[i] = a[i] ? a[i] / sum * 100 : '';
+                c[i] = b[i] ? (N * b[i] / 100).toFixed(2) : '';
+                document.getElementById('c' + i).value = c[i];
+            }
+        }
+    
+</script>
