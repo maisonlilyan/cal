@@ -1,38 +1,8 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>Perfume Boutique Animation</title>
-<style>
-    .text-wrapper1 {
-      display: inline-block;
-      text-align: center;
-      width: 100%;
-    }
 
-    .text-wrapper1 span {
-      display: inline-block;
-      opacity: 1; /* 글자가 항상 보이도록 설정 */
-      transform: translateY(0);
-      animation: jumpIn 1.5s infinite; /* 애니메이션 지속 시간을 조정하고 무한 반복 설정 */
-      color: #F4829D; /* 글자 색상 설정 */
-      font-size: 20px; /* 글자 크기 설정 */
-font-family: 'BaskinRobbins';
-	  font-weight: 700;
-
-    }
-
-    @keyframes jumpIn {
-      0%, 20%, 100% { /* 시작, 20%, 마지막에서는 글자가 바닥에 위치 */
-        opacity: 1;
-        transform: translateY(0);
-      }
-      10% { /* 10% 지점에서 글자가 저높이 점프 */
-        opacity: 1;
-        transform: translateY(-10px); /* 점프 높이 절반으로 줄임 */
-      }
-    }
-</style>
 </head>
 <body>
 
@@ -41,23 +11,156 @@ font-family: 'BaskinRobbins';
     <span>향</span><span>료</span><span>중</span><span>량</span><span>계</span><span>산</span><span>기</span>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const spans = document.querySelectorAll('.text-wrapper1 span');
-  const animationDuration = 2; // 애니메이션 지속 시간 (초)
-  const delayBetweenAnimations = 0.5; // 애니메이션 사이의 딜레이 (초)
-  const delayIncrement = 0.2; // 각 글자 사이의 딜레이 증가량
-  const totalAnimationTime = animationDuration + delayBetweenAnimations;
-  const totalDuration = (spans.length - 1) * delayIncrement + totalAnimationTime;
-  
-  spans.forEach((span, index) => {
-    // 각 글자의 애니메이션 딜레이를 설정
-    span.style.animationDelay = `${index * delayIncrement}s`;
-    // 각 애니메이션이 끝난 후 1초 동안 기다리는 시간을 포함하여 애니메이션 지속 시간 설정
-    span.style.animationDuration = `${totalDuration}s`;
-  });
-});
-</script>
 
+
+</body>
+</html>
+</div></div></div></div><div doz_type="row" doz_xdz="12" class="doz_row  col-xdz col-xdz-12"><div doz_type="grid" doz_xdz="12" class="col-dz col-dz-  col-xdz col-xdz-12"><div doz_type="widget" id="w20240819d70cfea81f0a9"><div class="_widget_data _ds_animated_except" data-widget-name="여백" data-widget-type="padding"    data-widget-parent-is-mobile="Y"><div class="widget padding" data-height="30" style="margin-top:px; margin-bottom:px;">
+	<div id="padding_w20240819d70cfea81f0a9" style="width:100%; min-height:1px; height:30px; "></div>
+</div>
+</div></div></div></div><div doz_type="row" doz_xdz="12" class="doz_row  col-xdz col-xdz-12"><div doz_type="grid" doz_xdz="12" class="col-dz col-dz-  col-xdz col-xdz-12"><div doz_type="widget" id="w20240819be7d2d85547ae"><div class="_widget_data " data-widget-name="코드" data-widget-type="code" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="Y"><!DOCTYPE html>
+<html>
+<head>
+    <title>메종 릴리앙 향료 중량 계산기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="volume-radio-group">
+            <select id="volumeSelect">
+			  <option value="0">향수를 선택해주세요.</option>
+			  <option value="5">룸스프레이 50ml</option>
+			  <option value="1" selected>오드콜로뉴 30ml</option> 
+                <option value="6.4">오드뚜왈렛 30ml</option> 
+                <option value="9.6">오드뚜왈렛 50ml</option> 
+                <option value="19.3">오드퍼퓸 50ml</option>
+                <option value="32">엑스뜨레드 50ml</option> 시향병 부향률 30%
+            </select>
+        </div>
+        <div class="space-between"></div> 
+        <div>
+            <p><span id="totalDrops">최종 방울 수  </span><span id="weights">/               향료 무게(g)</span></p>
+        </div>
+        <div class="calculator">
+            
+            <div class="input-group">
+                <label for="a1">첫번째 향료 :</label>
+                <select id="a1" oninput="checkInput(this)">
+				    <option value="0">0</option>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c1" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a2">두번째 향료 :</label>
+                <select id="a2" oninput="checkInput(this)">
+				  	<option value="0">0</option>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c2" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a3">세번째 향료 :</label>
+                <select id="a3" oninput="checkInput(this)">
+				  	<option value="0">0</option>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c3" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a4">네번째 향료 :</label>
+                <select id="a4" oninput="checkInput(this)">
+				  	<option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c4" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="a5">다섯번째 향료 :</label>
+                <select id="a5" oninput="checkInput(this)">
+				  	<option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c5" readonly>
+            </div>
+		   <div class="input-group">
+                <label for="a6">여섯번째 향료 :</label>
+                <select id="a6" oninput="checkInput(this)">
+				  	<option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				    <option value="5">5</option>
+				    <option value="6">6</option>
+				    <option value="7">7</option>
+				    <option value="8">8</option>
+				    <option value="9">9</option>
+				    <option value="10">10</option>
+                </select>
+                <span class="arrow">➡</span>
+                <input type="text" id="c6" readonly>
+            </div>
+        </div>
+
+        <button class="btn-calculate" onclick="calculate()">계산하기</button>
+    </div>
+
+    
 </body>
 </html>
